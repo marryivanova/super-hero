@@ -2,8 +2,13 @@ FROM repo.saber3d.net/docker/library/python:3.12-bookworm
 
 WORKDIR /app
 
-COPY . /app
+RUN pip install --no-cache-dir poetry==1.8.2
 
-RUN pip install --no-cache-dir -r requirements.txt
+COPY pyproject.toml poetry.lock* ./
 
-CMD ["python", "-u", "main.py"]
+RUN poetry config virtualenvs.create false && \
+    poetry install --no-dev --no-interaction --no-ansi
+
+COPY . .
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
