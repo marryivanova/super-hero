@@ -27,6 +27,28 @@ poetry install
 
 # Start database
 cd docker
+docker-compose up --build
+```
+
+or 
+
+
+```bash
+# Clone the repository
+git clone https://github.com/marryivanova/super-hero.git
+
+# Create and activate virtual environment
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+venv\Scripts\activate     # Windows
+
+# Install dependencies
+cd super-hero
+pip install poetry
+poetry install
+
+# Start database
+cd docker
 docker-compose -f docker-compose.yml up -d db
 
 # Run migrations
@@ -35,6 +57,12 @@ alembic upgrade head  # Make sure to check database URL in alembic.ini
 # Start the server
 python main.py
 ```
+
+<figure>
+  <img src="src/helpers/docs_file/docker.png">
+  <figcaption>Swagger</figcaption>
+</figure>
+
 
 **Frontend Note !!**:
 Frontend microservice expects API at http://localhost:8000:
