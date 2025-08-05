@@ -108,3 +108,15 @@ Frontend microservice expects API at http://localhost:8000:
   <figcaption>Swagger</figcaption>
 </figure>
 
+#### Result
+
+<figure>
+  <img src="src/helpers/docs_file/add_new_hero.png">
+  <figcaption>add new hero</figcaption>
+</figure>
+
+
+<figure>
+  <img src="src/helpers/docs_file/find_here.png">
+  <figcaption>find new hero</figcaption>
+</figure>
