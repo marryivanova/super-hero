@@ -13,7 +13,7 @@ services:
       - DEBUG=${DEBUG}
       - DB_HOST=${DB_HOST}
       - DB_PORT=${DB_PORT}
-      - DB_NAME=${DB_PORT}
+      - DB_NAME=${DB_NAME}
       - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
     depends_on:
@@ -30,7 +30,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
-      - "127.0.0.1:5432:5432"
+      - "5432:5432"
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}" ]
       interval: 5s
